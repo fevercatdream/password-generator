@@ -116,7 +116,7 @@ function askForPassword(){
   // Invalid input if each criteria is no which equals false, and prompts to ask for password criteria again
   if (mustIncludeObj.uppercaseLetter == false && mustIncludeObj.lowercaseLetter == false && mustIncludeObj.numChar == false && mustIncludeObj.symbolChar == false){
     window.alert("Invalid Input:\n -----\n Must include at least one uppercase letter, lowercase letter, number, or symbol.\n -----\n Please try again.");
-    askForPassword();
+    return askForPassword();
   }
   console.log(mustIncludeObj);
   return mustIncludeObj;
@@ -154,6 +154,7 @@ function generatePassword(passwordParam){
     var characterIndex = i % itemsInclude.length;
     runningPassword.push(itemsInclude[characterIndex]());
   }
+  // takes the returned shufflePasswordArray and changes it to a string
   shufflePasswordArray(runningPassword);
   fullPasswordString = runningPassword.join("");
   console.log("Password: " + fullPasswordString);
